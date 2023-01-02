@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Vector3 } from 'three';
-import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import { FBXLoader } from '../node_modules/three/examples/jsm/loaders/FBXLoader.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -128,50 +128,40 @@ document.addEventListener( 'keyup', onKeyUp );
 document.addEventListener('click', onClick);
 document.addEventListener('mousemove', getMouseLocation);
 
-const loader = new GLTFLoader();
-const textureLoader = new THREE.TextureLoader();
+const loader = new FBXLoader();
+var mixer;
+const animationActions = [];
+const gui = new GUI()
+const animationsFolder = gui.addFolder('Animations')
+animationsFolder.open()
 
-loader.load( './assets/models/knight/scene.gltf', function ( gltf ) {
+loader.load( './assets/models/player/player.fbx', (object) => {
+    moleman = object;
+    moleman.scale.set(0.02, 0.02, 0.02);
+    mixer = new THREE.AnimationMixer(moleman);
 
-    moleman = gltf.scene;
+    const animationAction = mixer.clipAction(
+        moleman.animations[0]
+    )
+    animationActions.push(animationAction)
+    animationsFolder.add(animations, 'default')
+    activeAction = animationActions[0]
 
-    textureLoader.load(
-        // resource URL
-        './assets/models/knight/textures/Paladin_MAT_diffuse.png',
-    
-        // onLoad callback
-        function ( texture ) {
-            var normalMap = new THREE.TextureLoader().load('./assets/models/knight/textures/Paladin_MAT_normal.png');
-            var specularMap = new THREE.TextureLoader().load('./assets/models/knight/textures/Paladin_MAT_specularGlossiness.png');
-            // in this example we create the material when the texture is loaded
-            texture.flipY = false;
-            normalMap.flipY = false;
-            specularMap.flipY = false;
-            moleman.traverse ( ( o ) => {
-            if ( o.isMesh ) {
-                // note: for a multi-material mesh, `o.material` may be an array,
-                // in which case you'd need to set `.map` on each value.
-                o.material.map = texture;
-                o.material.normalMap = normalMap;
-                o.material.roughnessMap = specularMap;
-                o.material.roughness = 1;
-                scene.add( moleman );
-            }
-            } );
+    scene.add(moleman)
+
+    fbxLoader.load('./assets/models/player/animations/idle.fbx', (object) => {
+        const animationAction = mixer.clipAction(object.animations[0]);
+        animationActions.push(animationAction)
+        animationsFolder.add(animations, "idle")
+
         },
-    
-        // onProgress callback currently not supported
-        undefined,
-    
-        // onError callback
-        function ( err ) {
-            console.error( err );
+        (xhr) => {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+        },
+        (error) => {
+            console.log(error)
         }
-    );
-
-    SetCameraPosition();
-
-    let mixer = new THREE.AnimationMixer(moleman);
+        )
 
 }, undefined, function ( error ) {
 
