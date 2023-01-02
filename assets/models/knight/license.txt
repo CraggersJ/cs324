@@ -1,0 +1,11 @@
+Model Information:
+* title:	Knight With Sword & Shield
+* source:	https://sketchfab.com/3d-models/knight-with-sword-shield-bce33a37c5de44b78d0f36990da055cc
+* author:	MoonBaby2402 (https://sketchfab.com/moonbaby2402)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Knight With Sword & Shield" (https://sketchfab.com/3d-models/knight-with-sword-shield-bce33a37c5de44b78d0f36990da055cc) by MoonBaby2402 (https://sketchfab.com/moonbaby2402) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
