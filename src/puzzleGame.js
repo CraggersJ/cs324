@@ -567,7 +567,7 @@ function animate() {
 
         if (camera.position.y < -100)
         {
-            window.location.replace("./level2.html")
+            window.location.replace("../level2.html")
             fall = false;
         }
 
