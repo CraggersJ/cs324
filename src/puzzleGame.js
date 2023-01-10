@@ -260,7 +260,7 @@ var textMesh;
 var fontLoader = new FontLoader();
 
 
-fontLoader.load('three/fonts/helvetiker_regular.typeface.json', function (font) 
+fontLoader.load('https://unpkg.com/three@0.138.0/examples/fonts/helvetiker_regular.typeface.json', function (font) 
 {
     myFont = font
     const geometry = new TextGeometry("Click anywhere to Begin...", {font: myFont, size: 5, height: 0.1});

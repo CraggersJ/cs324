@@ -186,7 +186,7 @@ function cutsceneFunction()
             {
                 scene.remove(cave[i])
             }
-            fontLoader.load('three/fonts/helvetiker_regular.typeface.json', function (font) 
+            fontLoader.load('https://unpkg.com/three@0.138.0/examples/fonts/helvetiker_regular.typeface.json', function (font) 
             {
                 myFont = font
                 const geometry = new TextGeometry("The End", {font: myFont, size: 1, height: 0.1});
