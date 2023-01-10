@@ -220,7 +220,7 @@ function cutsceneFunction()
     {
         if (!loadingNext)
         {
-            window.location.replace("../index.html")
+            window.location.replace("./index.html")
             loadingNext = true;
         }
         

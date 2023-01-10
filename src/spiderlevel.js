@@ -289,7 +289,7 @@ function animate() {
 
     if (camera.position.y < -100 && !loadingNext)
     {
-        window.location.replace("../level3.html")
+        window.location.replace("./level3.html")
         loadingNext = true;
     }
 
@@ -430,7 +430,7 @@ function animate() {
         }
         else
         {
-            window.location.replace("../level2.html")
+            window.location.replace("./level2.html")
             dead = false;
         }   
     }
