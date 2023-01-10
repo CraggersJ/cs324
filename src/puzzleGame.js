@@ -1,12 +1,12 @@
 import * as THREE from 'three';
 import { Group, SphereGeometry, Vector3 } from 'three';
-import { PointerLockControls } from '../node_modules/three/examples/jsm/controls/PointerLockControls.js';
-import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { TextGeometry } from '../node_modules/three/examples/jsm/geometries/TextGeometry.js';
-import { OutlinePass } from '../node_modules/three/examples/jsm/postprocessing/OutlinePass.js';
-import { RenderPass } from '../node_modules/three/examples/jsm/postprocessing/RenderPass.js';
-import { EffectComposer } from '../node_modules/three/examples/jsm/postprocessing/EffectComposer.js';
-import { FontLoader } from '../node_modules/three/examples/jsm/loaders/FontLoader.js';
+import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -260,7 +260,7 @@ var textMesh;
 var fontLoader = new FontLoader();
 
 
-fontLoader.load('../node_modules/three/examples/fonts/helvetiker_regular.typeface.json', function (font) 
+fontLoader.load('three/fonts/helvetiker_regular.typeface.json', function (font) 
 {
     myFont = font
     const geometry = new TextGeometry("Click anywhere to Begin...", {font: myFont, size: 5, height: 0.1});

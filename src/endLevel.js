@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import { Group, SphereGeometry, Vector3 } from 'three';
-import { GLTFLoader } from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { TextGeometry } from '../node_modules/three/examples/jsm/geometries/TextGeometry.js';
-import { FontLoader } from '../node_modules/three/examples/jsm/loaders/FontLoader.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -186,7 +186,7 @@ function cutsceneFunction()
             {
                 scene.remove(cave[i])
             }
-            fontLoader.load('../node_modules/three/examples/fonts/helvetiker_regular.typeface.json', function (font) 
+            fontLoader.load('three/fonts/helvetiker_regular.typeface.json', function (font) 
             {
                 myFont = font
                 const geometry = new TextGeometry("The End", {font: myFont, size: 1, height: 0.1});
