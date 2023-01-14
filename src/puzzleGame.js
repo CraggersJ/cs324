@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { Group, SphereGeometry, Vector3 } from 'three';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
@@ -12,12 +11,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 let controls;
 
-var reticle = new THREE.Mesh(
-    new THREE.CircleGeometry( 0.01, 32),
-    new THREE.MeshBasicMaterial( {color: 0xffffff, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, transparent: true, opacity: 0.5 })
-  );
-  reticle.position.z = -1;
-  reticle.lookAt(camera.position)
+
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
@@ -40,9 +34,7 @@ var drops;
 var sound;
 var bricks;
 
-const ambientLight = new THREE.AmbientLight( 0xf9defd ); // soft white light
-ambientLight.intensity = 0.1;
-scene.add( ambientLight );
+
 
 let moveForward = false;
 let moveBackward = false;
@@ -260,7 +252,7 @@ var textMesh;
 var fontLoader = new FontLoader();
 
 
-fontLoader.load('https://unpkg.com/three@0.138.0/examples/fonts/helvetiker_regular.typeface.json', function (font) 
+fontLoader.load('../assets/fonts/EagleLake-Regular1673705852.json', function (font) 
 {
     myFont = font
     const geometry = new TextGeometry("Click anywhere to Begin...", {font: myFont, size: 5, height: 0.1});
@@ -276,7 +268,10 @@ fontLoader.load('https://unpkg.com/three@0.138.0/examples/fonts/helvetiker_regul
     renderer.render(scene, camera)
 })
 
-
+function loadLevel()
+{
+    
+}
 
 
 function randomNumberArray()
@@ -546,7 +541,7 @@ function animate() {
 
             if (timeSinceStoppedWalking < 1 && !fall)
             {
-                camera.position.lerp(new Vector3(camera.position.x ,15, camera.position.z), timeSinceStoppedWalking/1);
+                camera.position.lerp(new THREE.Vector3(camera.position.x ,15, camera.position.z), timeSinceStoppedWalking/1);
             }
         }
 
@@ -580,10 +575,6 @@ function animate() {
     composer.render( scene, camera );
 };
 
-function titleScreen()
-{
-
-}
 
 function cutsceneFunction()
 {
