@@ -32,6 +32,7 @@ const loader = new GLTFLoader();
 
 //sounds
 var music = new THREE.Audio( listener );
+var spiderSound = new THREE.Audio( listener );
 
 //lights
 const targetObject = new THREE.Object3D();
@@ -134,6 +135,12 @@ function loadLevel()
                         
                             scene.add(leftLeg);
                             scene.add(rightLeg);
+
+                            audioLoader.load( '../assets/sound/effects/spider-chattering-87558.mp3', function( buffer ) {
+                                spiderSound.setBuffer( buffer );
+                                spiderSound.setLoop( true );
+                                spiderSound.setVolume( 0.5 );
+                            });
 
                             update();
                         
@@ -251,6 +258,7 @@ function update() {
                 spiderEnter = false;
                 stopTimer = false;
                 spiderTimer = 0;
+                spiderSound.play();
             }
         }
 
