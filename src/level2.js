@@ -33,6 +33,7 @@ const loader = new GLTFLoader();
 //sounds
 var music = new THREE.Audio( listener );
 var spiderSound = new THREE.Audio( listener );
+var chime = new THREE.Audio( listener );
 
 //lights
 const targetObject = new THREE.Object3D();
@@ -140,6 +141,12 @@ function loadLevel()
                                 spiderSound.setBuffer( buffer );
                                 spiderSound.setLoop( true );
                                 spiderSound.setVolume( 0.5 );
+
+                                audioLoader.load( '../assets/sound/effects/magic-wand-6214.mp3', function( buffer ) {
+                                    chime.setBuffer( buffer );
+                                    chime.setPlaybackRate(3);
+                                    chime.setVolume( 0.5 );
+                                });
                             });
 
                             update();
@@ -403,6 +410,7 @@ const onKeyUp = function ( event ) {
             case 'Enter':
                 if (riddleAnswers[currentRiddle].includes(answer))
                 {
+                    chime.play();
                     currentRiddle++
                     nextSpeech = true;
                     stopTimer = false;
