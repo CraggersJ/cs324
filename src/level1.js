@@ -334,8 +334,8 @@ function loadLevel()
             scene.add(level2Instructions);
 
             astralGroup = new THREE.Group();
-            const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(2,32,32), new THREE.MeshBasicMaterial())
-            sphereMesh.position.set(-20,25,-100)
+            const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(6,32,32), new THREE.MeshBasicMaterial())
+            sphereMesh.position.set(-20,25,-250)
             astralGroup.add(sphereMesh);
             for (let i = 0; i < 100; i++)
             {
@@ -494,8 +494,6 @@ function update()
             controls.moveRight( + velocity.x * delta );
             controls.moveForward( + velocity.z * delta );
         }
-
-        astralGroup.position.x = camera.position.x/10
         
 
         if (direction.length() != 0)

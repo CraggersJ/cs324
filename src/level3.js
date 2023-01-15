@@ -24,7 +24,7 @@ const fontLoader = new FontLoader();
 const loader = new GLTFLoader();
 
 //lights
-const ambientLight = new THREE.PointLight( 0xffffff, 5, 100 );
+const ambientLight = new THREE.PointLight( 0xffffff, 7.5, 100 );
 ambientLight.position.set(0,20,50);
 scene.add( ambientLight );
 
